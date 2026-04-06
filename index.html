@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arman Raja Bullet House | Ajmer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        reRed: '#e53935',
+                        darkBg: '#0a0a0a',
+                        cardBg: '#181818',
+                        lightText: '#a3a3a3'
+                    },
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0a0a0a; color: #ffffff; scroll-behavior: smooth; }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 1)), 
+                        url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .bike-img { transition: transform 0.5s ease; mix-blend-mode: lighten; }
+        .bike-card:hover .bike-img { transform: scale(1.1) translateY(-10px); }
+        .tab-active { color: #e53935; border-bottom: 3px solid #e53935; }
+        .hidden-card { display: none !important; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 bg-black/95 border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
+            <div class="flex-shrink-0">
+                <span class="text-xl font-bold tracking-tighter uppercase">Arman Raja <span class="text-reRed">Bullet House</span></span>
+            </div>
+            
+            <div class="hidden md:block flex-1 max-w-sm mx-10">
+                <div class="relative">
+                    <input type="text" id="navSearch" oninput="liveSearch(this.value)" class="w-full bg-zinc-900 border border-zinc-700 text-white rounded-full py-2 px-4 pl-10 focus:ring-1 focus:ring-reRed outline-none" placeholder="Search Classic, Hunter...">
+                    <i class="fas fa-search absolute left-4 top-3 text-zinc-500"></i>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-6 text-sm">
+                <div class="flex flex-col items-end text-xs sm:text-sm">
+                    <span class="text-reRed font-bold"><i class="fas fa-map-marker-alt"></i> Somalpur, Ajmer</span>
+                    <span class="text-zinc-500">Near Raju Ki Hotel</span>
+                </div>
+                <button class="bg-zinc-800 p-2 rounded-full px-4 hover:bg-zinc-700 transition">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-gradient pt-40 pb-24 px-4 text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-4 uppercase italic">Pure <span class="text-reRed">Motorcycling</span></h1>
+        <p class="text-zinc-400 text-lg mb-10 max-w-xl mx-auto">Premium Royal Enfield Showroom in Somalpur. Explore the legendary lineup.</p>
+        
+        <div class="max-w-2xl mx-auto bg-cardBg p-2 rounded-2xl flex items-center shadow-2xl border border-zinc-800">
+            <i class="fas fa-search text-zinc-500 ml-4"></i>
+            <input type="text" id="heroSearch" oninput="liveSearch(this.value)" class="w-full bg-transparent text-white px-4 py-4 outline-none text-lg" placeholder="Search your dream bike here...">
+            <button class="bg-reRed hover:bg-red-700 text-white px-10 py-4 rounded-xl font-bold transition">FIND</button>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 py-20">
+        <div class="flex items-center justify-between mb-12 border-b border-zinc-800 pb-4">
+            <h2 class="text-3xl font-bold uppercase tracking-widest">Trending <span class="text-reRed">Bullets</span></h2>
+            <div class="flex space-x-8 text-lg font-semibold">
+                <button class="tab-active pb-2">Trending</button>
+                <button class="text-zinc-500 hover:text-white pb-2">Popular</button>
+                <button class="text-zinc-500 hover:text-white pb-2">Upcoming</button>
+            </div>
+        </div>
+
+        <div id="bikeContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <div class="bike-card bg-cardBg rounded-3xl overflow-hidden border border-zinc-800 p-4 transition-all hover:border-reRed" data-name="classic 350 reborn">
+                <div class="bg-zinc-900 rounded-2xl h-60 flex items-center justify-center relative">
+                    <span class="absolute top-4 left-4 bg-reRed text-white text-[10px] font-black px-2 py-1 rounded">#1 TRENDING</span>
+                    <img src="https://www.royalenfield.com/content/dam/royal-enfield/india/motorcycles/classic-350/colours/studio-shots/dual-channel/halcyon-black/01-halcyon-black.png" class="bike-img h-48 object-contain">
+                </div>
+                <div class="mt-6 px-2">
+                    <h3 class="text-2xl font-bold">Classic 350</h3>
+                    <p class="text-zinc-500 text-sm italic">Legendary Reborn</p>
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <span class="text-2xl font-black text-white">₹1.93 Lakh</span>
+                            <p class="text-[10px] text-zinc-500 uppercase">Avg. Ex-Showroom</p>
+                        </div>
+                        <button class="bg-white text-black font-bold px-4 py-2 rounded-lg text-sm hover:bg-reRed hover:text-white transition">Check Price</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bike-card bg-cardBg rounded-3xl overflow-hidden border border-zinc-800 p-4 transition-all hover:border-reRed" data-name="hunter 350 retro metro">
+                <div class="bg-zinc-900 rounded-2xl h-60 flex items-center justify-center">
+                    <img src="https://www.royalenfield.com/content/dam/royal-enfield/india/motorcycles/hunter-350/colors/studio-shots/rebel-blue/01-rebel-blue.png" class="bike-img h-48 object-contain">
+                </div>
+                <div class="mt-6 px-2">
+                    <h3 class="text-2xl font-bold">Hunter 350</h3>
+                    <p class="text-zinc-500 text-sm italic">A Shot of Motorcycling</p>
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <span class="text-2xl font-black text-white">₹1.50 Lakh</span>
+                            <p class="text-[10px] text-zinc-500 uppercase">Avg. Ex-Showroom</p>
+                        </div>
+                        <button class="bg-white text-black font-bold px-4 py-2 rounded-lg text-sm hover:bg-reRed hover:text-white transition">Check Price</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bike-card bg-cardBg rounded-3xl overflow-hidden border border-zinc-800 p-4 transition-all hover:border-reRed" data-name="bullet 350 standard black">
+                <div class="bg-zinc-900 rounded-2xl h-60 flex items-center justify-center relative">
+                    <span class="absolute top-4 left-4 bg-zinc-700 text-white text-[10px] font-black px-2 py-1 rounded">OG BULLET</span>
+                    <img src="https://www.royalenfield.com/content/dam/royal-enfield/india/motorcycles/bullet-350/colors/studio-shots/standard-black/01-standard-black.png" class="bike-img h-48 object-contain">
+                </div>
+                <div class="mt-6 px-2">
+                    <h3 class="text-2xl font-bold">Bullet 350</h3>
+                    <p class="text-zinc-500 text-sm italic">1932 Legacy</p>
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <span class="text-2xl font-black text-white">₹1.74 Lakh</span>
+                            <p class="text-[10px] text-zinc-500 uppercase">Avg. Ex-Showroom</p>
+                        </div>
+                        <button class="bg-white text-black font-bold px-4 py-2 rounded-lg text-sm hover:bg-reRed hover:text-white transition">Check Price</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bike-card bg-cardBg rounded-3xl overflow-hidden border border-zinc-800 p-4 transition-all hover:border-reRed" data-name="himalayan 450 adventure">
+                <div class="bg-zinc-900 rounded-2xl h-60 flex items-center justify-center">
+                    <img src="https://www.royalenfield.com/content/dam/royal-enfield/india/motorcycles/himalayan/colors/studio-shots/hanle-black/hanle-black-000.png" class="bike-img h-48 object-contain">
+                </div>
+                <div class="mt-6 px-2">
+                    <h3 class="text-2xl font-bold">Himalayan 450</h3>
+                    <p class="text-zinc-500 text-sm italic">Built for All Roads</p>
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <span class="text-2xl font-black text-white">₹2.85 Lakh</span>
+                            <p class="text-[10px] text-zinc-500 uppercase">Avg. Ex-Showroom</p>
+                        </div>
+                        <button class="bg-white text-black font-bold px-4 py-2 rounded-lg text-sm hover:bg-reRed hover:text-white transition">Check Price</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bike-card bg-cardBg rounded-3xl overflow-hidden border border-zinc-800 p-4 transition-all hover:border-reRed" data-name="continental gt 650 cafe racer">
+                <div class="bg-zinc-900 rounded-2xl h-60 flex items-center justify-center">
+                    <img src="https://www.royalenfield.com/content/dam/royal-enfield/india/motorcycles/continental-gt/colors/studio-shots/mr-clean/mr-clean-000.png" class="bike-img h-48 object-contain">
+                </div>
+                <div class="mt-6 px-2">
+                    <h3 class="text-2xl font-bold">Continental GT</h3>
+                    <p class="text-zinc-500 text-sm italic">The Café Racer</p>
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <span class="text-2xl font-black text-white">₹3.19 Lakh</span>
+                            <p class="text-[10px] text-zinc-500 uppercase">Avg. Ex-Showroom</p>
+                        </div>
+                        <button class="bg-white text-black font-bold px-4 py-2 rounded-lg text-sm hover:bg-reRed hover:text-white transition">Check Price</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bike-card bg-cardBg rounded-3xl overflow-hidden border border-zinc-800 p-4 transition-all hover:border-reRed" data-name="meteor 350 super nova">
+                <div class="bg-zinc-900 rounded-2xl h-60 flex items-center justify-center">
+                    <img src="https://www.royalenfield.com/content/dam/royal-enfield/india/motorcycles/meteor/colors/studio-shots/supernova-red/supernova-red-000.png" class="bike-img h-48 object-contain">
+                </div>
+                <div class="mt-6 px-2">
+                    <h3 class="text-2xl font-bold">Meteor 350</h3>
+                    <p class="text-zinc-500 text-sm italic">Cruise through Time</p>
+                    <div class="mt-4 flex items-end justify-between">
+                        <div>
+                            <span class="text-2xl font-black text-white">₹2.06 Lakh</span>
+                            <p class="text-[10px] text-zinc-500 uppercase">Avg. Ex-Showroom</p>
+                        </div>
+                        <button class="bg-white text-black font-bold px-4 py-2 rounded-lg text-sm hover:bg-reRed hover:text-white transition">Check Price</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div id="noResult" class="hidden text-center py-20">
+            <h3 class="text-2xl text-zinc-600">No bikes found. Try searching "Classic" or "Bullet".</h3>
+        </div>
+    </div>
+
+    <footer class="bg-black border-t border-zinc-800 py-12 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+            <div>
+                <h4 class="text-xl font-bold uppercase">Arman Raja <span class="text-reRed">Bullet House</span></h4>
+                <p class="text-zinc-500 text-sm mt-1">Somalpur Road, Ajmer - Near Raju Ki Hotel</p>
+            </div>
+            <div class="flex space-x-6 text-xl">
+                <i class="fab fa-instagram hover:text-reRed cursor-pointer"></i>
+                <i class="fab fa-facebook hover:text-reRed cursor-pointer"></i>
+                <i class="fab fa-youtube hover:text-reRed cursor-pointer"></i>
+            </div>
+            <p class="text-zinc-600 text-xs">© 2026 Bullet House Ajmer. Ride Pure.</p>
+        </div>
+    </footer>
+
+    <script>
+        function liveSearch(value) {
+            const query = value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.bike-card');
+            const noResult = document.getElementById('noResult');
+            let found = false;
+
+            // Sync both search bars
+            document.getElementById('navSearch').value = value;
+            document.getElementById('heroSearch').value = value;
+
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                if (name.includes(query)) {
+                    card.classList.remove('hidden-card');
+                    found = true;
+                } else {
+                    card.classList.add('hidden-card');
+                }
+            });
+
+            if (!found && query !== "") {
+                noResult.classList.remove('hidden');
+            } else {
+                noResult.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
